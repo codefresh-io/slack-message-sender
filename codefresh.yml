@@ -13,3 +13,13 @@ steps:
     candidate: '${{BuildingDockerImage}}'
     tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
     registry: dockerhub
+  PushLatest:
+    title: Pushing latest tag
+    type: push
+    candidate: '${{BuildingDockerImage}}'
+    tag: latest
+    registry: dockerhub
+    when:
+      branch:
+        only:
+          - master
